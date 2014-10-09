@@ -8,12 +8,14 @@ SOURCES += main.cpp \
     location.cpp \
     structures.cpp \
     shack.cpp \
-    loot.cpp
+    loot.cpp \
+    maps.cpp
 
 HEADERS += \
     location.hpp \
     structures.hpp \
     shack.hpp \
-    loot.hpp
+    loot.hpp \
+    maps.hpp
 
 
