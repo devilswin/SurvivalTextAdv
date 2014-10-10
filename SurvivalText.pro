@@ -9,13 +9,21 @@ SOURCES += main.cpp \
     structures.cpp \
     shack.cpp \
     loot.cpp \
-    maps.cpp
+    choice_enterbuilding.cpp \
+    policestation.cpp \
+    house.cpp \
+    firestation.cpp \
+    foodstore.cpp
 
 HEADERS += \
     location.hpp \
     structures.hpp \
     shack.hpp \
     loot.hpp \
-    maps.hpp
+    choice_enterbuilding.hpp \
+    policestation.hpp \
+    house.hpp \
+    firestation.hpp \
+    foodstore.hpp
 
 

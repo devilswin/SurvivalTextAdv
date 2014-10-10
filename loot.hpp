@@ -15,8 +15,10 @@ private:
     int value_of_loot, size_of_loot, amount_of_loot, amount_can_hold;
     void spawn_in_loot(int spawn_loot_spots, int sizer);
     void insert_into_inventory(int test);
+    bool lootable;
 public:
     void assign_values(const int& value, const int& size, const int& spawn_points, const int& inventory_size);
+    void set_lootable(bool building_open);
     loot();
 };
 

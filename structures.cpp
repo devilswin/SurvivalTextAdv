@@ -24,7 +24,9 @@ void Structures::building_type(int houseVal, int& entity_spawns, int& loot_spawn
     spawn_loot(area);
     entity_spawns =amount_of_entity_spawn;
     loot_spawns = amount_of_loot_spawns;
+set_lootable(in_building);
     assign_values(loot_val,5,loot_spawns,10);
+
     dimensions_length = length;
     dimensions_width = width;
 
@@ -34,5 +36,12 @@ void Structures::generate_dimensions()
     length = rand() % (max_length-min_length)+min_length;
     width = rand() % (max_width-min_width)+min_width;
     area = length * width;
-
+}
+bool Structures::enter_building()
+{
+    return in_building = true;
+}
+bool Structures::exit_building()
+{
+    return in_building = false;
 }

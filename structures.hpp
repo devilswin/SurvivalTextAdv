@@ -14,9 +14,11 @@ private:
     void spawn_entity_alg(int area_entity_spawn);
     void spawn_loot(int area_to_spawn_loot);
     void generate_dimensions();
+    bool in_building;
 public:
     Structures();
-
+     bool exit_building();
+    bool enter_building();
     void building_type(int houseVal,int& entity_spawns, int& loot_spawns,int& dimensions_width, int& dimensions_length,int& loot_val);
 
 };

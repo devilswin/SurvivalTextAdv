@@ -17,9 +17,8 @@ void loot::spawn_in_loot(int spawn_loot_spots, int sizer)
     std::vector<loot> loot_stacks;
     for(int i = 0; i < amount_of_loot; i++)
     {
-        size_of_loot = rand() % sizer ;
-        if(size_of_loot == 0)
-                size_of_loot = rand() % sizer ;
+        size_of_loot = rand() % (sizer-1) + 1  ;
+
 
         loot temp_loot;
         for(int q = 0; q < size_of_loot; q++)
@@ -30,7 +29,7 @@ void loot::spawn_in_loot(int spawn_loot_spots, int sizer)
         loot_stacks.push_back(temp_loot);
         std::cout<< "Value of loot test: ";
         for (int z = 0; z < loot_stacks[i].contents.size(); z++)
-            std::cout  << loot_stacks[i].contents[z];
+            std::cout  << loot_stacks[i].contents[z] << ", ";
 
         std::cout << std::endl;
     }
@@ -38,5 +37,9 @@ void loot::spawn_in_loot(int spawn_loot_spots, int sizer)
 void loot::insert_into_inventory(int test)
 {
     contents.push_back(test);
+}
+void loot::set_lootable(bool building_open)
+{
+lootable = building_open;
 }
 

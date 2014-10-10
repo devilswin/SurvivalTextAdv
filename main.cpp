@@ -7,18 +7,20 @@
 #include "structures.hpp"
 #include "shack.hpp"
 #include "loot.hpp"
-
+#include "policestation.hpp"
+#include "firestation.hpp"
+#include "house.hpp"
+#include "foodstore.hpp"
 using namespace std;
 
 int main()
 {
     srand(time(NULL));
-    string tez;
-    shack shack;
-
-
-
-
+    shack test;
+    PoliceStation testz;
+    house tz;
+    fireStation tezy;
+    foodStore as;
     return 0;
 }
 
