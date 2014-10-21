@@ -47,24 +47,24 @@ OBJECTS_DIR   = ./
 
 SOURCES       = main.cpp \
 		location.cpp \
-		structures.cpp \
 		shack.cpp \
 		loot.cpp \
 		choice_enterbuilding.cpp \
 		policestation.cpp \
 		house.cpp \
 		firestation.cpp \
-		foodstore.cpp 
+		foodstore.cpp \
+		buildings.cpp 
 OBJECTS       = main.o \
 		location.o \
-		structures.o \
 		shack.o \
 		loot.o \
 		choice_enterbuilding.o \
 		policestation.o \
 		house.o \
 		firestation.o \
-		foodstore.o
+		foodstore.o \
+		buildings.o
 DIST          = ../../../../Qt/5.2.1/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.2.1/clang_64/mkspecs/qdevice.pri \
 		../../../../Qt/5.2.1/clang_64/mkspecs/features/device_config.prf \
@@ -448,7 +448,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/SurvivalText1.0.0 || mkdir -p .tmp/SurvivalText1.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/SurvivalText1.0.0/ && $(COPY_FILE) --parents location.hpp structures.hpp shack.hpp loot.hpp choice_enterbuilding.hpp policestation.hpp house.hpp firestation.hpp foodstore.hpp .tmp/SurvivalText1.0.0/ && $(COPY_FILE) --parents main.cpp location.cpp structures.cpp shack.cpp loot.cpp choice_enterbuilding.cpp policestation.cpp house.cpp firestation.cpp foodstore.cpp .tmp/SurvivalText1.0.0/ && (cd `dirname .tmp/SurvivalText1.0.0` && $(TAR) SurvivalText1.0.0.tar SurvivalText1.0.0 && $(COMPRESS) SurvivalText1.0.0.tar) && $(MOVE) `dirname .tmp/SurvivalText1.0.0`/SurvivalText1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/SurvivalText1.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/SurvivalText1.0.0/ && $(COPY_FILE) --parents location.hpp shack.hpp loot.hpp choice_enterbuilding.hpp policestation.hpp house.hpp firestation.hpp foodstore.hpp buildings.hpp .tmp/SurvivalText1.0.0/ && $(COPY_FILE) --parents main.cpp location.cpp shack.cpp loot.cpp choice_enterbuilding.cpp policestation.cpp house.cpp firestation.cpp foodstore.cpp buildings.cpp .tmp/SurvivalText1.0.0/ && (cd `dirname .tmp/SurvivalText1.0.0` && $(TAR) SurvivalText1.0.0.tar SurvivalText1.0.0 && $(COMPRESS) SurvivalText1.0.0.tar) && $(MOVE) `dirname .tmp/SurvivalText1.0.0`/SurvivalText1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/SurvivalText1.0.0
 
 
 clean:compiler_clean 
@@ -490,9 +490,8 @@ compiler_clean:
 ####### Compile
 
 main.o: main.cpp location.hpp \
-		structures.hpp \
-		loot.hpp \
 		shack.hpp \
+		loot.hpp \
 		policestation.hpp \
 		firestation.hpp \
 		house.hpp \
@@ -502,40 +501,42 @@ main.o: main.cpp location.hpp \
 location.o: location.cpp location.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o location.o location.cpp
 
-structures.o: structures.cpp structures.hpp \
-		loot.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o structures.o structures.cpp
-
 shack.o: shack.cpp shack.hpp \
-		structures.hpp \
 		loot.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o shack.o shack.cpp
 
 loot.o: loot.cpp loot.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o loot.o loot.cpp
 
-choice_enterbuilding.o: choice_enterbuilding.cpp choice_enterbuilding.hpp
+choice_enterbuilding.o: choice_enterbuilding.cpp choice_enterbuilding.hpp \
+		location.hpp \
+		shack.hpp \
+		loot.hpp \
+		policestation.hpp \
+		firestation.hpp \
+		house.hpp \
+		foodstore.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o choice_enterbuilding.o choice_enterbuilding.cpp
 
 policestation.o: policestation.cpp policestation.hpp \
-		structures.hpp \
 		loot.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o policestation.o policestation.cpp
 
 house.o: house.cpp house.hpp \
-		structures.hpp \
 		loot.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o house.o house.cpp
 
 firestation.o: firestation.cpp firestation.hpp \
-		structures.hpp \
 		loot.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o firestation.o firestation.cpp
 
 foodstore.o: foodstore.cpp foodstore.hpp \
-		structures.hpp \
 		loot.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o foodstore.o foodstore.cpp
+
+buildings.o: buildings.cpp buildings.hpp \
+		loot.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o buildings.o buildings.cpp
 
 ####### Install
 

@@ -1,6 +1,6 @@
 #ifndef POLICESTATION_HPP
 #define POLICESTATION_HPP
-#include "structures.hpp"
+#include "buildings.hpp"
 #include <cstring>
 #include <cmath>
 #include <ctime>
@@ -9,14 +9,15 @@
 #include <iostream>
 #include <cstring>
 #include "loot.hpp"
-class PoliceStation: public Structures
+class PoliceStation: public Buildings
 {
 private:
     int spawn_entity_spots, spawn_loot_spots, width,length, loot_val;
-    std::string name = "PoliceStatiion";
+
 public:
     void get_info(int& ref_width, int& ref_length, std::string& ref_name);
     PoliceStation();
+        std::string name = "Police Statiion";
 };
 
 #endif // POLICESTATION_HPP

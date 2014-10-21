@@ -3,35 +3,35 @@
 loot::loot()
 {
 }
-void loot::assign_values(const int &value,const int &size, const int &spawn_points, const int& inventory_size)
+void loot::assign_values(const int &value,const int &size, const int &spawn_points, const int& inventory_size, int& buildingVal)
 {
     value_of_loot = value;
     amount_can_hold = inventory_size;
 
-    spawn_in_loot(spawn_points,size);
+    spawn_in_loot(spawn_points,size, buildingVal);
 }
-void loot::spawn_in_loot(int spawn_loot_spots, int sizer)
+void loot::spawn_in_loot(int spawn_loot_spots, int sizer, int building_num)
 {
-    amount_of_loot = rand() % spawn_loot_spots;
-    std::cout << spawn_loot_spots << " vs " << amount_of_loot << std::endl;
+
+    if (building_num > 4) //Just used so that buildings with higher values will spawn a higher grade of loow
+        amount_of_loot = rand() % (spawn_loot_spots -  building_num * 3) +  building_num * 3;
+    else
+        amount_of_loot = rand() % spawn_loot_spots;
+
+
     std::vector<loot> loot_stacks;
-    for(int i = 0; i < amount_of_loot; i++)
+    for(int i = 0; i < amount_of_loot; i++)//this will generate the loot and put it into a vector that will represent a chest or container of sorts
     {
         size_of_loot = rand() % (sizer-1) + 1  ;
-
-
         loot temp_loot;
+
         for(int q = 0; q < size_of_loot; q++)
         {
             int to_insert = rand() % value_of_loot;
             temp_loot.insert_into_inventory(to_insert);
         }
-        loot_stacks.push_back(temp_loot);
-        std::cout<< "Value of loot test: ";
-        for (int z = 0; z < loot_stacks[i].contents.size(); z++)
-            std::cout  << loot_stacks[i].contents[z] << ", ";
 
-        std::cout << std::endl;
+        loot_stacks.push_back(temp_loot);
     }
 }
 void loot::insert_into_inventory(int test)
@@ -40,6 +40,6 @@ void loot::insert_into_inventory(int test)
 }
 void loot::set_lootable(bool building_open)
 {
-lootable = building_open;
+    lootable = building_open;
 }
 

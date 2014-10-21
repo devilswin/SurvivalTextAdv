@@ -1,7 +1,7 @@
 #ifndef FIRESTATION_HPP
 #define FIRESTATION_HPP
 
-#include "structures.hpp"
+#include "buildings.hpp"
 #include <cstring>
 #include <cmath>
 #include <ctime>
@@ -10,7 +10,7 @@
 #include <iostream>
 #include <cstring>
 #include "loot.hpp"
-class fireStation: public Structures
+class fireStation: public Buildings
 {
 private:
     int spawn_entity_spots, spawn_loot_spots, width,length, loot_val;
