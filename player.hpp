@@ -11,11 +11,11 @@
 class Player: public Entity
 {
 private:
-    int plyr_health, plyr_strength, plyr_level;
+    int  plstrength, plintelligence, plcharisma, plluck, plawarness, plmagicism, plspeed;
     std::vector<int> plyr_inventory;
     std::string plyr_name;
 public:
-    Player(std::string inp_name, const int& inp_hp,const  int& inp_st, const int& inp_lvl);
+    Player(std::string inp_name,int &inp_inte,int &inp_st,int &inp_charis, int &inp_magi, int &inp_speed, int &inp_lck);
 };
 
 #endif // PLAYER_HPP

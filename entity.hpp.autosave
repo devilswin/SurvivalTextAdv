@@ -19,7 +19,7 @@ private:
     std::string faction;
     bool ent_boss;
 public:
-    void output_mag_skill()
+    void output_mag_skill(int &fire_to_see, int& ice_to_see);
     void above_100_check();//see if any stat is above 100, if so, set to zero
     void set_int(int& inp_int);
     void set_magicism(int& inp_magicism);
