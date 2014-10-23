@@ -74,7 +74,7 @@ int main()
         {
             cout << "Are you done?" << endl;
             string done_ui;
-            cin >> done_ui;
+            getline(cin,done_ui);
             if (done_ui == "Yes"  || done_ui == "yes" || done_ui == "y" || done_ui == "Y")
             {
                 is_done = true;
@@ -85,7 +85,8 @@ int main()
             }
         }
     }
-
+    Player User_player(inputed_name, plinte,plstr,plchr,plmag,plspe,pllck,plawar);
+    std::cout <<"Maybe?" <<endl;
     Choice_enterBuilding test;
     std::string tez;
     test.generate_choice(tez);

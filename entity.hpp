@@ -19,13 +19,17 @@ private:
     std::string faction;
     bool ent_boss;
 public:
-    void output_mag_skill()
+    void output_mag_skill(int &fire_to_see, int& ice_to_see, int& def_to_see,int& conj_to_see,std::string& name_magskill_1, std::string& name_magskill_2,std::string& name_magskill_3, std::string& name_magskill_4);
+    void output_str_skill(int &unarmed_out, int& melee_out, std::string& name_strskill_1, std::string& name_strskill_2);
+    void output_awarness_skill(int &survival_out,std::string& name_speskill_1);
+    void output_speed_skill(int &guns_out,int& energy_guns_out, std::string& name_speskill_1,std::string& name_speskill_2);
+    void output_inte_skill(int& comp_out, int& robotics_out, int& repair_out, std::string& name_inteskill_1,  std::string& name_inteskill_2, std::string& name_inteskill_3);
     void above_100_check();//see if any stat is above 100, if so, set to zero
     void set_int(int& inp_int);
     void set_magicism(int& inp_magicism);
     void set_awarness(int& inp_awareness);
     void set_luck(int& inp_luck);
-   void set_charisma(int& inp_charisma);
+    void set_charisma(int& inp_charisma);
     void set_droprate(int inp_drop); //Sets the drop rate
     void set_level(int& inp_lvl);//sets the level
     void set_speed(int& inp_speed);

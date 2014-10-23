@@ -69,6 +69,8 @@ void Entity::above_100_check()
         speech = 100;
     if(loot_dropRate > 100)
         loot_dropRate = 100;
+    if(survival > 100)
+        survival = 100;
     if(guns > 100)
         guns = 100;
     if(barter > 100)
@@ -103,21 +105,63 @@ void Entity::set_faction(std::string fac_name)
 
 void Entity::generate_stats()
 {
-    health = (strength*(survival/10))*boss_multiplier;
+
     defense = magicism * 2.5;
     conjuration = magicism * 2.5;
     fire = magicism *2.5;
     ice = magicism *2.5;
     unarmed = strength*2.5;
     melee = strength*2.5;
-    guns = strength*2.5;
     computers = intelligence*2.5;
     robotics= intelligence*2.5;
     speech = charisma*2.5;
     barter = charisma*2.5;
     gambling = luck*2.5;
     guns = speed*2.5;
+    energy_guns = speed*2.5;
+    repair = intelligence*2.5;
     mana_pool = magicism *3 + speed;
+    survival = awarness*2.5;
+    health = (strength*(survival/10))*boss_multiplier;
 
 
+}
+void Entity::output_awarness_skill(int &survival_out, std::string &name_speskill_1)
+{
+    survival_out = survival;
+    name_speskill_1 = "Survival";
+}
+void Entity::output_inte_skill(int &comp_out, int &robotics_out, int &repair_out, std::string &name_inteskill_1, std::string &name_inteskill_2, std::string &name_inteskill_3)
+{
+    comp_out = computers;
+    robotics_out = robotics;
+    repair_out = repair;
+    name_inteskill_1 = "Computers";
+    name_inteskill_2 = "Robotics";
+    name_inteskill_3 = "Repair";
+}
+void Entity::output_mag_skill(int &fire_to_see, int &ice_to_see, int &def_to_see, int &conj_to_see, std::string &name_magskill_1, std::string &name_magskill_2, std::string &name_magskill_3, std::string &name_magskill_4)
+{
+    fire_to_see = fire;
+    ice_to_see = ice;
+    def_to_see = defense;
+    conj_to_see = conjuration;
+    name_magskill_1 = "Fire";
+    name_magskill_2 = "Ice";
+    name_magskill_3 = "Defense";
+    name_magskill_4 = "Conjuration";
+}
+void Entity::output_speed_skill(int &guns_out, int &energy_guns_out, std::string &name_speskill_1, std::string &name_speskill_2)
+{
+guns_out = guns;
+energy_guns_out = energy_guns;
+name_speskill_1 = "Guns";
+name_speskill_2 = "Energy Weapons";
+}
+void Entity::output_str_skill(int &unarmed_out, int &melee_out, std::string &name_strskill_1, std::string &name_strskill_2)
+{
+    unarmed_out = unarmed;
+    melee_out = melee;
+    name_strskill_1 = "Unarmed";
+    name_strskill_2 = "Melee";
 }

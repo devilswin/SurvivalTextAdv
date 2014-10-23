@@ -2,15 +2,7 @@
 
 Choice_enterBuilding::Choice_enterBuilding()
 {
-    std::ifstream location_txt_file;
-    location_txt_file.open("/Users/gabeorlanski/Desktop/Plse save battery/QT project/i.txt");
-    if (location_txt_file.is_open())
-    {
-        std::string line;
-        while (getline(location_txt_file,line))
-            building_spawn.push_back(line);
-        location_txt_file.close();
-    }
+
 
 }
 void Choice_enterBuilding::generate_choice(std::string &user_choice) //Will randomly generate 3 building types that will give the user the choice
