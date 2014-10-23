@@ -19,7 +19,7 @@ Location::Location(std::string name_of_location)
 }
 void Location::assign_Values(int atrribute_slot)
 {
-    switch(atrribute_slot)
+    switch(atrribute_slot)//Assigns values to each of the diffrent geographical locations, this will have a bigger affect once tribes are implemented, and will effect value of loot
     {
     case 1:
         loc_food = Food_Amount[2];
