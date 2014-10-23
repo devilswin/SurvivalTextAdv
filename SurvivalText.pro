@@ -16,7 +16,8 @@ SOURCES += main.cpp \
     buildings.cpp \
     military_base.cpp \
     entity.cpp \
-    player.cpp
+    player.cpp \
+    first_launch.cpp
 
 HEADERS += \
     location.hpp \
@@ -30,6 +31,7 @@ HEADERS += \
     buildings.hpp \
     military_base.hpp \
     entity.hpp \
-    player.hpp
+    player.hpp \
+    first_launch.hpp
 
 
