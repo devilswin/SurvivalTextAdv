@@ -1,7 +1,32 @@
-#include "first_launch.hpp"
+#include <iostream>
+#include "location.hpp"
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctime>
+#include "buildings.hpp"
+#include "shack.hpp"
+#include "loot.hpp"
+#include "policestation.hpp"
+#include "firestation.hpp"
+#include "house.hpp"
+#include "foodstore.hpp"
+#include <random>
+#include "choice_enterbuilding.hpp"
+#include <QProcess>
+#include "player.hpp"
+#include <cmath>
 using namespace std;
-void first_launch(int& plstr, int& plinte, int& pllck, int& plchr, int& plspe, int& plmag, int& plawar)
+
+int main()
 {
+    for (int i = 0; i < 50; i++)
+        cout << endl;
+    srand(time(NULL));
+    cout << "What is your name? " << endl;
+    string inputed_name;
+    getline(cin,inputed_name);
+    int plstr = 5; int plinte = 5;  int pllck = 5; int plchr = 5; int plspe = 5; int plmag = 5;int plawar = 5;
     int point_remaining = 5;
     std::string skill_to_change;
     std::string amount_to_change;
@@ -60,4 +85,11 @@ void first_launch(int& plstr, int& plinte, int& pllck, int& plchr, int& plspe, i
             }
         }
     }
+    Player User_player(inputed_name, plinte,plstr,plchr,plmag,plspe,pllck,plawar);
+    std::cout <<"Maybe?" <<endl;
+    Choice_enterBuilding test;
+    std::string tez;
+    test.generate_choice(tez);
+    return 0;
 }
+
