@@ -2,8 +2,6 @@
 
 Choice_enterBuilding::Choice_enterBuilding()
 {
-
-
 }
 void Choice_enterBuilding::generate_choice(std::string &user_choice) //Will randomly generate 3 building types that will give the user the choice
 {

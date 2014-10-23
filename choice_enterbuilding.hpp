@@ -22,7 +22,7 @@
 class Choice_enterBuilding
 {
 private:
-    std::vector<std::string> building_spawn;
+
 public:
     Choice_enterBuilding();
     void generate_choice(std::string& user_choice);
