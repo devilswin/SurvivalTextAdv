@@ -85,11 +85,12 @@ int main()
             }
         }
     }
+    std::vector<int> test_inv;
+    test_inv.resize(30);
     Player User_player(inputed_name, plinte,plstr,plchr,plmag,plspe,pllck,plawar);
-    std::cout <<"Maybe?" <<endl;
     Choice_enterBuilding test;
     std::string tez;
-    test.generate_choice(tez);
+    test.generate_choice(tez,test_inv);
     return 0;
 }
 

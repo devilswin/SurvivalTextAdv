@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <ctime>
 #include <random>
-
+#include <map>
 class Entity
 {
 private:
@@ -14,16 +14,12 @@ private:
     int  strength, intelligence, charisma, luck, awarness, magicism, speed;
     int health, damage,  inventory_sized, mana_pool;
     float reload_multiplier, attack_speed;
-    int computers, guns, robotics, gambling, speech, barter,survival, melee, unarmed, energy_guns, repair, fire, ice, conjuration, defense;
+    std::map<std::string, int> general_skills;
     std::string ent_name;
     std::string faction;
     bool ent_boss;
 public:
-    void output_mag_skill(int &fire_to_see, int& ice_to_see, int& def_to_see,int& conj_to_see,std::string& name_magskill_1, std::string& name_magskill_2,std::string& name_magskill_3, std::string& name_magskill_4);
-    void output_str_skill(int &unarmed_out, int& melee_out, std::string& name_strskill_1, std::string& name_strskill_2);
-    void output_awarness_skill(int &survival_out,std::string& name_speskill_1);
-    void output_speed_skill(int &guns_out,int& energy_guns_out, std::string& name_speskill_1,std::string& name_speskill_2);
-    void output_inte_skill(int& comp_out, int& robotics_out, int& repair_out, std::string& name_inteskill_1,  std::string& name_inteskill_2, std::string& name_inteskill_3);
+    void out_gen_skills(std::string name_skill, int& skill_value);
     void above_100_check();//see if any stat is above 100, if so, set to zero
     void set_int(int& inp_int);
     void set_magicism(int& inp_magicism);

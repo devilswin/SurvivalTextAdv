@@ -25,7 +25,7 @@ private:
 
 public:
     Choice_enterBuilding();
-    void generate_choice(std::string& user_choice);
+    void generate_choice(std::string& user_choice, std::vector<int>& plyrs_inve);
 };
 
 #endif // CHOICE_ENTERBUILDING_HPP

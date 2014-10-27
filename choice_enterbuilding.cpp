@@ -3,7 +3,7 @@
 Choice_enterBuilding::Choice_enterBuilding()
 {
 }
-void Choice_enterBuilding::generate_choice(std::string &user_choice) //Will randomly generate 3 building types that will give the user the choice
+void Choice_enterBuilding::generate_choice(std::string &user_choice, std::vector<int> &plyrs_inve) //Will randomly generate 3 building types that will give the user the choice
 {
 
     std::mt19937 mt { std::random_device {}() };
@@ -38,15 +38,22 @@ void Choice_enterBuilding::generate_choice(std::string &user_choice) //Will rand
     {
         if(user_choice == "A")
         {
-            items[0]->enter_building(); has_chosen = true;
+            items[0]->enter_building();
+            items[0]->extract_loot(plyrs_inve);
+            has_chosen = true;
         }
         else if(user_choice == "B")
         {
-            items[1]->enter_building(); has_chosen = true;
+            items[1]->enter_building();
+            items[1]->extract_loot(plyrs_inve);
+            has_chosen = true;
+
         }
         else if(user_choice == "C")
         {
             items[2]->enter_building();
+
+            items[2]->extract_loot(plyrs_inve);
             has_chosen = true;
         }
         else

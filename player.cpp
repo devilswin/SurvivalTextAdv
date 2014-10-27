@@ -8,6 +8,7 @@ set_luck(inp_lck);
 set_speed(inp_speed);
 set_strength(inp_st);
 set_int(inp_inte);
+set_magicism(inp_magi);
 set_name_ent(inp_name);
 generate_stats();
 }
