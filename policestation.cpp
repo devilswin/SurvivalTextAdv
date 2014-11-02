@@ -1,7 +1,7 @@
 #include "policestation.hpp"
 
 
-PoliceStation::PoliceStation()
+PoliceStation::PoliceStation(Player &usrplyr)
 {
     loot_val = rand() % (20 - 10) + 10;
     name_of_type = name;

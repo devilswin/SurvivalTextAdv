@@ -16,7 +16,7 @@ private:
 
 public:
     void get_info(int& ref_width, int& ref_length, std::string& ref_name);
-    shack();
+    shack(Player &usrPlyr);
      std::string name = "Shack";
 };
 

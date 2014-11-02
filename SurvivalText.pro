@@ -1,9 +1,13 @@
 TEMPLATE = app
 CONFIG += console
 CONFIG -= app_bundle
-CONFIG += qt
-Qt += opengl
 CONFIG += c++11
+LIBS += -L"/usr/local/lib"
+CONFIG(release, debug|release): LIBS += -lsfml-graphics -lsfml-system -lsfml-network -lsfml-window
+CONFIG(debug, debug|release): LIBS +=  -lsfml-graphics -lsfml-system -lsfml-network -lsfml-window
+
+INCLUDEPATH += "/usr/local/include"
+DEPENDPATH += "/usr/local/include"
 SOURCES += main.cpp \
     location.cpp \
     shack.cpp \
@@ -16,7 +20,11 @@ SOURCES += main.cpp \
     buildings.cpp \
     military_base.cpp \
     entity.cpp \
-    player.cpp
+    player.cpp \
+    output_funcs.cpp \
+    item.cpp \
+    first_input.cpp \
+    gun.cpp
 
 HEADERS += \
     location.hpp \
@@ -30,6 +38,10 @@ HEADERS += \
     buildings.hpp \
     military_base.hpp \
     entity.hpp \
-    player.hpp
+    player.hpp \
+    output_funcs.hpp \
+    item.hpp \
+    first_input.hpp \
+    gun.hpp
 
 

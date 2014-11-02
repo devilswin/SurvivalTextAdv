@@ -2,7 +2,7 @@
 
 
 
-Military_Base::Military_Base()
+Military_Base::Military_Base(Player &usrplyr)
 {
     loot_val = rand() % (50 - 25) + 25;
     name_of_type = name;

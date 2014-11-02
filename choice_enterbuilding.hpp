@@ -19,13 +19,14 @@
 #include <random>
 #include "military_base.hpp"
 #include <memory>
+#include "player.hpp"
 class Choice_enterBuilding
 {
 private:
-
+    std::unique_ptr<Player> user;
 public:
     Choice_enterBuilding();
-    void generate_choice(std::string& user_choice, std::vector<int>& plyrs_inve);
+    void generate_choice(std::string& user_choice, Player&user, std::mt19937& mt);
 };
 
 #endif // CHOICE_ENTERBUILDING_HPP

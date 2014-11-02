@@ -1,6 +1,6 @@
 #include "shack.hpp"
 
-shack::shack()
+shack::shack(Player &usrPlyr)
 {
     loot_val = rand() % 6;
     name_of_type = name;

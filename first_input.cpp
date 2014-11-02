@@ -1,51 +1,27 @@
-#include <iostream>
-#include "location.hpp"
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctime>
-#include "buildings.hpp"
-#include "shack.hpp"
-#include "loot.hpp"
-#include "policestation.hpp"
-#include "firestation.hpp"
-#include "house.hpp"
-#include "foodstore.hpp"
-#include <random>
-#include "choice_enterbuilding.hpp"
-#include <QProcess>
-#include "player.hpp"
-#include <cmath>
-using namespace std;
+#include "first_input.hpp"
 
-int main()
+using namespace std;
+void first_input(int &plinte, int &plstr, int &plchr, int &plmag, int &plspe, int &pllck, int &plawar)
 {
-    for (int i = 0; i < 50; i++)
-        cout << endl;
-    srand(time(NULL));
-    cout << "What is your name? " << endl;
-    string inputed_name;
-    getline(cin,inputed_name);
-    int plstr = 5; int plinte = 5;  int pllck = 5; int plchr = 5; int plspe = 5; int plmag = 5;int plawar = 5;
     int point_remaining = 5;
-    std::string skill_to_change;
-    std::string amount_to_change;
+    string skill_to_change;
+    string amount_to_change;
     int change_multi = 0;
     bool is_done = false;
     while(is_done != true )
     {
-        cout << "Your Base Skills: " << endl;
-        cout << "1) " << "Strength: " << plstr << endl;
-        cout << "2) " << "Intelligence: " << plinte << endl;
-        cout << "3) " << "Luck: " << pllck << endl;
-        cout << "4) " << "Charisma: " << plchr << endl;
-        cout << "5) " << "Speed: " << plspe << endl;
-        cout << "6) " << "Magic: " << plmag << endl;
-        cout << "7) " << "Awarness: " << plawar << endl;
-        cout << "\n" << "Points Left: " << point_remaining;
-        cout << "\n" << "Please enter any of the Numbers you see to the left of the skill: " << endl;
+        printf( "Your Base Skills: \n");
+        output_list_form_variable(plstr,"Strength", true,1);
+        output_list_form_variable(plinte,"Intelligence", true,2);
+        output_list_form_variable(pllck,"Luck", true,3);
+        output_list_form_variable(plchr,"Charisma", true,4);
+        output_list_form_variable(plspe,"Speed", true,5);
+        output_list_form_variable(plmag,"Magic", true,6);
+        output_list_form_variable(plawar,"Awarness", true,7);
+        printf("\nPoints Left: %i", point_remaining);
+        printf( "\nPlease enter any of the Numbers you see to the left of the skill: \n");
         getline(cin,skill_to_change);
-        cout << "Now enter the amount you want it to change by (-1 to take away 1, and 1 to add one): " << endl;
+        printf( "Now enter the amount you want it to change by (-1 to take away 1, and 1 to add one): \n" );
         getline(cin, amount_to_change);
         change_multi =atoi(amount_to_change.c_str());
         if(abs(change_multi) > point_remaining)
@@ -74,23 +50,15 @@ int main()
         {
             cout << "Are you done?" << endl;
             string done_ui;
-            getline(cin,done_ui);
+            getline(cin, done_ui);
             if (done_ui == "Yes"  || done_ui == "yes" || done_ui == "y" || done_ui == "Y")
             {
                 is_done = true;
             }
             else
             {
-                cout << "Ill assume you said no so..." << endl;
+                printf("Ill assume you said no so...");
             }
         }
     }
-    std::vector<int> test_inv;
-    test_inv.resize(30);
-    Player User_player(inputed_name, plinte,plstr,plchr,plmag,plspe,pllck,plawar);
-    Choice_enterBuilding test;
-    std::string tez;
-    test.generate_choice(tez,test_inv);
-    return 0;
 }
-

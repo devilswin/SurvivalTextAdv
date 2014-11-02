@@ -29,7 +29,7 @@ void Entity::set_level(int& inp_lvl)
 void Entity::set_strength(int& inp_strength)
 {
     strength = inp_strength;
-    inventory_sized = strength * 6;
+
 }
 void Entity::set_charisma(int& inp_charisma)
 {
@@ -92,6 +92,7 @@ void Entity::generate_stats()
     mana_pool = magicism *3 + speed;
    general_skills["Survival"] = awarness*2.5;
     health = (strength*(general_skills["Survival"]/10))*boss_multiplier;
+    inventory_sized = strength * 6;
 
 
 }

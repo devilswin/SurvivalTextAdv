@@ -10,6 +10,7 @@
 #include <iostream>
 #include <cstring>
 #include "loot.hpp"
+#include "player.hpp"
 class Military_Base: public Buildings
 {
 private:
@@ -17,7 +18,7 @@ private:
 
 public:
     void get_info(int& ref_width, int& ref_length, std::string& ref_name);
-    Military_Base();
+    Military_Base(Player& usrplyr);
         std::string name = "Military Base";
 };
 #endif // MILITARY_BASE_HPP

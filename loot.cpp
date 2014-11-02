@@ -1,4 +1,4 @@
-#include "loot.hpp"
+    #include "loot.hpp"
 
 loot::loot()
 {

@@ -34,6 +34,7 @@ public:
     void set_name_ent(std::string& inp_name);//sets the entities name
     void generate_stats(); //generates the stats
     void set_faction(std::string fac_name); //sets the faction
+    int return_inventory();
     void get_stats(int& heal, int& lvl, int& inventory, std::string& name_to_out, bool& boss_status); //allows other functions to acsess the values
     Entity();
 };

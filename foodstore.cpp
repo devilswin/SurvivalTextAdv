@@ -1,6 +1,6 @@
 #include "foodstore.hpp"
 
-foodStore::foodStore()
+foodStore::foodStore(Player &usrplyr)
 {
     loot_val = rand() %  7;
     name_of_type = name;

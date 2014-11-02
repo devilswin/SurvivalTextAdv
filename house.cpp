@@ -1,6 +1,5 @@
 #include "house.hpp"
-
-house::house()
+house::house(Player &usrplyr)
 {
     loot_val = rand() %  5;
     name_of_type = name;

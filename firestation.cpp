@@ -1,6 +1,6 @@
 #include "firestation.hpp"
 
-fireStation::fireStation()
+fireStation::fireStation(Player &usrplyr)
 {
     loot_val = rand() % (15 - 5) + 5;
     name_of_type = name;

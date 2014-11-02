@@ -1,4 +1,4 @@
-#include "location.hpp"
+    #include "location.hpp"
 
 Location::Location(std::string name_of_location)
 {

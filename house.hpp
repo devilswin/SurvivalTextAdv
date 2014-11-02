@@ -10,6 +10,7 @@
 #include <iostream>
 #include <cstring>
 #include "loot.hpp"
+#include "player.hpp"
 class house: public Buildings
 {
 private:
@@ -17,6 +18,6 @@ private:
     std::string name = "House";
 public:
     void get_info(int& ref_width, int& ref_length, std::string& ref_name);
-    house();
+    house(Player& usrPlyr);
 };
 #endif // HOUSE_HPP

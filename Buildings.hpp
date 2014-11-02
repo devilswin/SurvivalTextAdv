@@ -6,6 +6,9 @@
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
+#include <locale.h>
+#include <ctype.h>
+#include "player.hpp"
 #include "loot.hpp"
 class Buildings : public loot
 {
@@ -24,7 +27,7 @@ public:
      bool exit_building();
     bool enter_building();
     void building_type(int houseVal,int& entity_spawns, int& loot_spawns,int& dimensions_width, int& dimensions_length,int& loot_val, std::string build_name);
-    void extract_loot(std::vector<int> player_inventory);
+    void extract_loot(Player& userplyr);
 };
 
 #endif // Buildings_HPP

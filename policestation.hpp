@@ -9,6 +9,7 @@
 #include <iostream>
 #include <cstring>
 #include "loot.hpp"
+#include "player.hpp"
 class PoliceStation: public Buildings
 {
 private:
@@ -16,7 +17,7 @@ private:
 
 public:
     void get_info(int& ref_width, int& ref_length, std::string& ref_name);
-    PoliceStation();
+    PoliceStation(Player& usrPlyr);
         std::string name = "Police Statiion";
 };
 
