@@ -16,12 +16,11 @@ using namespace std;
 class Item
 {
 private:
+   
+protected:
     float currency_val, rarity;
     string name;
-    int weight;
-    
-    int numerical_val;
-    
+    int weight, numerical_val;
 public:
     Item();
     void set_item_attributes(int& item_value, string& item_name, string& item_type, float& item_rarity, float& item_weight, string& item_category);

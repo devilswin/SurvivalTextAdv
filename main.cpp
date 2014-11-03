@@ -5,12 +5,9 @@
 #include <stdlib.h>
 #include <ctime>
 #include "buildings.hpp"
-#include "shack.hpp"
+
 #include "loot.hpp"
-#include "policestation.hpp"
-#include "firestation.hpp"
-#include "house.hpp"
-#include "foodstore.hpp"
+#include "gun.hpp"
 #include <random>
 #include "choice_enterbuilding.hpp"
 #include <QProcess>
@@ -30,9 +27,9 @@ int main()
     srand(time(NULL));
     string blarg = "BLARG";
     int plstr = 5; int plinte = 5;  int pllck = 5; int plchr = 5; int plspe = 5; int plmag = 5;int plawar = 5;
-    Player ad(blarg, plinte, plstr, pllck, plchr,plspe,plmag,plawar );
-    Military_Base ada(ad);
-    ada.enter_building();
+    Gun ad();
+    ad.set_basic_gun_stuff("Gabe", "5.56","Torgue",165,2000,50);
+    ad.gun_fire(10,20);
     /*   printf( "What is your name? \n");
     string inputed_name;
     getline(cin,inputed_name);*/

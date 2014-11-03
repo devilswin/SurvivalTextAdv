@@ -18,7 +18,9 @@ SOURCES += main.cpp \
     output_funcs.cpp \
     item.cpp \
     first_input.cpp \
-    gun.cpp
+    gun.cpp \
+    metals.cpp \
+    building_parts.cpp
 
 HEADERS += \
     location.hpp \
@@ -30,6 +32,8 @@ HEADERS += \
     output_funcs.hpp \
     item.hpp \
     first_input.hpp \
-    gun.hpp
+    gun.hpp \
+    metals.hpp \
+    building_parts.hpp
 
 
