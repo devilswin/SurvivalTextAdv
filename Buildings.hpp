@@ -29,5 +29,62 @@ public:
     void building_type(int houseVal,int& entity_spawns, int& loot_spawns,int& dimensions_width, int& dimensions_length,int& loot_val, std::string build_name);
     void extract_loot(Player& userplyr);
 };
+class Military_Base: public Buildings
+{
+private:
+    int spawn_entity_spots, spawn_loot_spots, width,length, loot_val;
+
+public:
+    void get_info(int& ref_width, int& ref_length, std::string& ref_name);
+    Military_Base(Player& usrplyr);
+        std::string name = "Military Base";
+};
+class PoliceStation: public Buildings
+{
+private:
+    int spawn_entity_spots, spawn_loot_spots, width,length, loot_val;
+
+public:
+    void get_info(int& ref_width, int& ref_length, std::string& ref_name);
+    PoliceStation(Player& usrPlyr);
+        std::string name = "Police Statiion";
+};
+class foodStore: public Buildings
+{
+private:
+    int spawn_entity_spots, spawn_loot_spots, width,length, loot_val;
+    std::string name = "Food Store";
+public:
+    void get_info(int& ref_width, int& ref_length, std::string& ref_name);
+    foodStore(Player& usrPlyr);
+};
+class fireStation: public Buildings
+{
+private:
+    int spawn_entity_spots, spawn_loot_spots, width,length, loot_val;
+    std::string name = "Fire Station";
+public:
+    void get_info(int& ref_width, int& ref_length, std::string& ref_name);
+    fireStation(Player& usrPlyr);
+};
+class shack: public Buildings
+{
+private:
+    int spawn_entity_spots, spawn_loot_spots, width,length, loot_val;
+
+public:
+    void get_info(int& ref_width, int& ref_length, std::string& ref_name);
+    shack(Player &usrPlyr);
+     std::string name = "Shack";
+};
+class house: public Buildings
+{
+private:
+    int spawn_entity_spots, spawn_loot_spots, width,length, loot_val;
+    std::string name = "House";
+public:
+    void get_info(int& ref_width, int& ref_length, std::string& ref_name);
+    house(Player& usrPlyr);
+};
 
 #endif // Buildings_HPP

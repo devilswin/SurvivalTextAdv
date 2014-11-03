@@ -10,14 +10,8 @@
 #include <vector>
 #include <fstream>
 #include "buildings.hpp"
-#include "shack.hpp"
 #include "loot.hpp"
-#include "policestation.hpp"
-#include "firestation.hpp"
-#include "house.hpp"
-#include "foodstore.hpp"
 #include <random>
-#include "military_base.hpp"
 #include <memory>
 #include "player.hpp"
 class Choice_enterBuilding

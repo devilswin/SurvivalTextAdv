@@ -103,3 +103,85 @@ void Buildings::extract_loot(Player &userplyr)
         }
     }
 }
+Military_Base::Military_Base(Player &usrplyr)
+{
+    loot_val = rand() % (50 - 25) + 25;
+    name_of_type = name;
+
+    building_type(10,spawn_entity_spots,spawn_loot_spots,width,length, loot_val,name);
+
+}
+void Military_Base::get_info(int& ref_width, int& ref_length, std::string& ref_name)
+{
+    ref_width = width;
+    ref_name = name;
+    ref_length= length;
+}
+
+PoliceStation::PoliceStation(Player &usrplyr)
+{
+    loot_val = rand() % (20 - 10) + 10;
+    name_of_type = name;
+
+    building_type(5,spawn_entity_spots,spawn_loot_spots,width,length, loot_val,name);
+
+}
+void PoliceStation::get_info(int& ref_width, int& ref_length, std::string& ref_name)
+{
+    ref_width = width;
+    ref_name = name;
+    ref_length= length;
+}
+foodStore::foodStore(Player &usrplyr)
+{
+    loot_val = rand() %  7;
+    name_of_type = name;
+    building_type(5,spawn_entity_spots,spawn_loot_spots,width,length, loot_val,name);
+
+}
+void foodStore::get_info(int& ref_width, int& ref_length, std::string& ref_name)
+{
+    ref_width = width;
+    ref_name = name;
+    ref_length= length;
+}
+fireStation::fireStation(Player &usrplyr)
+{
+    loot_val = rand() % (15 - 5) + 5;
+    name_of_type = name;
+    building_type(4,spawn_entity_spots,spawn_loot_spots,width,length, loot_val,name);
+
+}
+void fireStation::get_info(int& ref_width, int& ref_length, std::string& ref_name)
+{
+    ref_width = width;
+    ref_name = name;
+    ref_length= length;
+}
+shack::shack(Player &usrPlyr)
+{
+    loot_val = rand() % 6;
+    name_of_type = name;
+    building_type(1,spawn_entity_spots,spawn_loot_spots,width,length, loot_val,name);
+
+}
+void shack::get_info(int& ref_width, int& ref_length, std::string& ref_name)
+{
+    ref_width = width;
+    ref_name = name;
+    ref_length= length;
+}
+house::house(Player &usrplyr)
+{
+    loot_val = rand() %  5;
+    name_of_type = name;
+    building_type(2,spawn_entity_spots,spawn_loot_spots,width,length, loot_val,name);
+
+}
+void house::get_info(int& ref_width, int& ref_length, std::string& ref_name)
+{
+    ref_width = width;
+    ref_name = name;
+    ref_length= length;
+}
+

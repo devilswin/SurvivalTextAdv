@@ -47,36 +47,26 @@ OBJECTS_DIR   = ./
 
 SOURCES       = main.cpp \
 		location.cpp \
-		shack.cpp \
 		loot.cpp \
 		choice_enterbuilding.cpp \
-		policestation.cpp \
-		house.cpp \
-		firestation.cpp \
-		foodstore.cpp \
 		buildings.cpp \
-		military_base.cpp \
 		entity.cpp \
 		player.cpp \
 		output_funcs.cpp \
 		item.cpp \
-		first_input.cpp 
+		first_input.cpp \
+		gun.cpp 
 OBJECTS       = main.o \
 		location.o \
-		shack.o \
 		loot.o \
 		choice_enterbuilding.o \
-		policestation.o \
-		house.o \
-		firestation.o \
-		foodstore.o \
 		buildings.o \
-		military_base.o \
 		entity.o \
 		player.o \
 		output_funcs.o \
 		item.o \
-		first_input.o
+		first_input.o \
+		gun.o
 DIST          = ../../../../Qt/5.2.1/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.2.1/clang_64/mkspecs/qdevice.pri \
 		../../../../Qt/5.2.1/clang_64/mkspecs/features/device_config.prf \
@@ -468,7 +458,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/SurvivalText1.0.0 || mkdir -p .tmp/SurvivalText1.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/SurvivalText1.0.0/ && $(COPY_FILE) --parents location.hpp shack.hpp loot.hpp choice_enterbuilding.hpp policestation.hpp house.hpp firestation.hpp foodstore.hpp buildings.hpp military_base.hpp entity.hpp player.hpp output_funcs.hpp item.hpp first_input.hpp .tmp/SurvivalText1.0.0/ && $(COPY_FILE) --parents main.cpp location.cpp shack.cpp loot.cpp choice_enterbuilding.cpp policestation.cpp house.cpp firestation.cpp foodstore.cpp buildings.cpp military_base.cpp entity.cpp player.cpp output_funcs.cpp item.cpp first_input.cpp .tmp/SurvivalText1.0.0/ && (cd `dirname .tmp/SurvivalText1.0.0` && $(TAR) SurvivalText1.0.0.tar SurvivalText1.0.0 && $(COMPRESS) SurvivalText1.0.0.tar) && $(MOVE) `dirname .tmp/SurvivalText1.0.0`/SurvivalText1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/SurvivalText1.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/SurvivalText1.0.0/ && $(COPY_FILE) --parents location.hpp loot.hpp choice_enterbuilding.hpp buildings.hpp entity.hpp player.hpp output_funcs.hpp item.hpp first_input.hpp gun.hpp .tmp/SurvivalText1.0.0/ && $(COPY_FILE) --parents main.cpp location.cpp loot.cpp choice_enterbuilding.cpp buildings.cpp entity.cpp player.cpp output_funcs.cpp item.cpp first_input.cpp gun.cpp .tmp/SurvivalText1.0.0/ && (cd `dirname .tmp/SurvivalText1.0.0` && $(TAR) SurvivalText1.0.0.tar SurvivalText1.0.0 && $(COMPRESS) SurvivalText1.0.0.tar) && $(MOVE) `dirname .tmp/SurvivalText1.0.0`/SurvivalText1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/SurvivalText1.0.0
 
 
 clean:compiler_clean 
@@ -514,13 +504,8 @@ main.o: main.cpp location.hpp \
 		player.hpp \
 		entity.hpp \
 		loot.hpp \
-		shack.hpp \
-		policestation.hpp \
-		firestation.hpp \
 		house.hpp \
-		foodstore.hpp \
 		choice_enterbuilding.hpp \
-		military_base.hpp \
 		../../../../Qt/5.2.1/clang_64/lib/QtCore.framework/Versions/5/Headers/QProcess \
 		../../../../Qt/5.2.1/clang_64/lib/QtCore.framework/Versions/5/Headers/qprocess.h \
 		output_funcs.hpp \
@@ -567,13 +552,6 @@ main.o: main.cpp location.hpp \
 location.o: location.cpp location.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o location.o location.cpp
 
-shack.o: shack.cpp shack.hpp \
-		buildings.hpp \
-		player.hpp \
-		entity.hpp \
-		loot.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o shack.o shack.cpp
-
 loot.o: loot.cpp loot.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o loot.o loot.cpp
 
@@ -582,55 +560,14 @@ choice_enterbuilding.o: choice_enterbuilding.cpp choice_enterbuilding.hpp \
 		buildings.hpp \
 		player.hpp \
 		entity.hpp \
-		loot.hpp \
-		shack.hpp \
-		policestation.hpp \
-		firestation.hpp \
-		house.hpp \
-		foodstore.hpp \
-		military_base.hpp
+		loot.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o choice_enterbuilding.o choice_enterbuilding.cpp
-
-policestation.o: policestation.cpp policestation.hpp \
-		buildings.hpp \
-		player.hpp \
-		entity.hpp \
-		loot.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o policestation.o policestation.cpp
-
-house.o: house.cpp house.hpp \
-		buildings.hpp \
-		player.hpp \
-		entity.hpp \
-		loot.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o house.o house.cpp
-
-firestation.o: firestation.cpp firestation.hpp \
-		buildings.hpp \
-		player.hpp \
-		entity.hpp \
-		loot.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o firestation.o firestation.cpp
-
-foodstore.o: foodstore.cpp foodstore.hpp \
-		buildings.hpp \
-		player.hpp \
-		entity.hpp \
-		loot.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o foodstore.o foodstore.cpp
 
 buildings.o: buildings.cpp buildings.hpp \
 		player.hpp \
 		entity.hpp \
 		loot.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o buildings.o buildings.cpp
-
-military_base.o: military_base.cpp military_base.hpp \
-		buildings.hpp \
-		player.hpp \
-		entity.hpp \
-		loot.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o military_base.o military_base.cpp
 
 entity.o: entity.cpp entity.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o entity.o entity.cpp
@@ -682,7 +619,6 @@ output_funcs.o: output_funcs.cpp output_funcs.hpp \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o output_funcs.o output_funcs.cpp
 
 item.o: item.cpp item.hpp \
-		location.hpp \
 		../../../../Qt/5.2.1/clang_64/lib/QtCore.framework/Versions/5/Headers/QProcess \
 		../../../../Qt/5.2.1/clang_64/lib/QtCore.framework/Versions/5/Headers/qprocess.h \
 		/usr/local/include/SFML/Window.hpp \
@@ -729,13 +665,8 @@ first_input.o: first_input.cpp first_input.hpp \
 		player.hpp \
 		entity.hpp \
 		loot.hpp \
-		shack.hpp \
-		policestation.hpp \
-		firestation.hpp \
 		house.hpp \
-		foodstore.hpp \
 		choice_enterbuilding.hpp \
-		military_base.hpp \
 		../../../../Qt/5.2.1/clang_64/lib/QtCore.framework/Versions/5/Headers/QProcess \
 		../../../../Qt/5.2.1/clang_64/lib/QtCore.framework/Versions/5/Headers/qprocess.h \
 		output_funcs.hpp \
@@ -777,6 +708,48 @@ first_input.o: first_input.cpp first_input.hpp \
 		/usr/local/include/SFML/Window/WindowStyle.hpp \
 		item.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o first_input.o first_input.cpp
+
+gun.o: gun.cpp gun.hpp \
+		../../../../Qt/5.2.1/clang_64/lib/QtCore.framework/Versions/5/Headers/QProcess \
+		../../../../Qt/5.2.1/clang_64/lib/QtCore.framework/Versions/5/Headers/qprocess.h \
+		/usr/local/include/SFML/Window.hpp \
+		/usr/local/include/SFML/System.hpp \
+		/usr/local/include/SFML/Config.hpp \
+		/usr/local/include/SFML/System/Clock.hpp \
+		/usr/local/include/SFML/System/Export.hpp \
+		/usr/local/include/SFML/System/Time.hpp \
+		/usr/local/include/SFML/System/Err.hpp \
+		/usr/local/include/SFML/System/InputStream.hpp \
+		/usr/local/include/SFML/System/Lock.hpp \
+		/usr/local/include/SFML/System/NonCopyable.hpp \
+		/usr/local/include/SFML/System/Mutex.hpp \
+		/usr/local/include/SFML/System/Sleep.hpp \
+		/usr/local/include/SFML/System/String.hpp \
+		/usr/local/include/SFML/System/Thread.hpp \
+		/usr/local/include/SFML/System/Thread.inl \
+		/usr/local/include/SFML/System/ThreadLocal.hpp \
+		/usr/local/include/SFML/System/ThreadLocalPtr.hpp \
+		/usr/local/include/SFML/System/ThreadLocalPtr.inl \
+		/usr/local/include/SFML/System/Utf.hpp \
+		/usr/local/include/SFML/System/Utf.inl \
+		/usr/local/include/SFML/System/Vector2.hpp \
+		/usr/local/include/SFML/System/Vector2.inl \
+		/usr/local/include/SFML/System/Vector3.hpp \
+		/usr/local/include/SFML/System/Vector3.inl \
+		/usr/local/include/SFML/Window/Context.hpp \
+		/usr/local/include/SFML/Window/Export.hpp \
+		/usr/local/include/SFML/Window/GlResource.hpp \
+		/usr/local/include/SFML/Window/ContextSettings.hpp \
+		/usr/local/include/SFML/Window/Event.hpp \
+		/usr/local/include/SFML/Window/Joystick.hpp \
+		/usr/local/include/SFML/Window/Keyboard.hpp \
+		/usr/local/include/SFML/Window/Mouse.hpp \
+		/usr/local/include/SFML/Window/VideoMode.hpp \
+		/usr/local/include/SFML/Window/Window.hpp \
+		/usr/local/include/SFML/Window/WindowHandle.hpp \
+		/usr/local/include/SFML/Window/WindowStyle.hpp \
+		item.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gun.o gun.cpp
 
 ####### Install
 
